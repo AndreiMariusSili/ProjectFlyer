@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Flyer;
 use App\Http\Requests;
+use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
     public function home()
-        {
-            return view('pages.home');
-        }    
+    {
+        $flyers = Flyer::get();
+        return view('pages.home');
+    }
+
 }

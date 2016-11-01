@@ -24,8 +24,6 @@ class PhotosController extends Controller
 
         $photo = $request->file('photo');
 
-        // $photo = Photo::fromFile($request->file('photo'));
-
         (new AddPhotoToFlyer($flyer, $photo))->save();
     }
 

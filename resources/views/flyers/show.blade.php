@@ -47,7 +47,7 @@
                 <form id="addPhotosForm"
                       action="{{ route('store_photo_path', [$flyer->zip, $flyer->street]) }}"
                       method="POST"
-                      class="dropzone"
+                      class="dropzone dropzon-custom"
                 >
                     {{ csrf_field() }}
                 </form>

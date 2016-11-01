@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Andrei Sili</title>
     <link rel="stylesheet" type="text/css" href="/css/app.css ">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" type="text/css" href="/css/libraries.css">
 </head>
 <body>
@@ -19,16 +18,27 @@
           </button>
           <a class="navbar-brand" href="/">Project Flyer</a>
         </div>
-        @if($signedIn)
-          <p class="navbar-text navbar-right">
-            Hello, {{ $user->name }}
-          </p>
-        @endif
+
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            @if($signedIn)
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hello, {{ $user->name }} <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/account">Manage Account</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="/logout">Logout</a></li>
+                </ul>
+              </li>
+            @else
+              <li><a href="register">Register</a></li>
+              <li><a href="login">Login</a></li>
+            @endif
           </ul>
         </div>
       </div>
@@ -45,7 +55,8 @@
       Dropzone.options.addPhotosForm = {
         paramName: 'photo',
         maxFilesize: 10,
-        acceptedFiles: '.jpg, .jpeg, .png, .bmp' 
+        acceptedFiles: '.jpg, .jpeg, .png, .bmp',
+        dictDefaultMessage: 'Drop photos here or click to upload.'
       };
     </script>
 

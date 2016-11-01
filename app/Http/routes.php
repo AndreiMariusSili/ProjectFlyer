@@ -15,6 +15,10 @@ Route::auth();
 
 Route::get('/', 'PagesController@home');
 
+Route::get('account', 'AccountController@edit');
+
+Route::put('account', 'AccountController@update');
+
 Route::resource('flyers', 'FlyersController');
 
 Route::get('{zip}/{street}', 'FlyersController@show');

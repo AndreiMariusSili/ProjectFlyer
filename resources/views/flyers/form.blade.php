@@ -33,9 +33,7 @@
         </div>
         <div class="form-group">
             <label for="description">Home Description:</label>
-            <textarea name="description" id="description" class="form-control" rows="10" required>
-            {{ old('description') }}
-            </textarea>
+            <textarea name="description" id="description" class="form-control" rows="10" required>{{ old('description') }}</textarea>
         </div>
     </div>
     <div class="col-md-12">

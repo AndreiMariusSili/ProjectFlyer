@@ -35,7 +35,8 @@ trait AuthorizesUsers
             return response(["message" => "No way."], 403);
         }
 
-        flash("No way.");
+        flash()->error("Error!", "No Way.");
+        
         return redirect('/');
     }
 }
