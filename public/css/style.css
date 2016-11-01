@@ -1,0 +1,10 @@
+.tn-delete {
+    border-radius: 0px;
+    color: #FFFFFF;
+    border-radius: 0px;
+    background-color: #000000;
+}
+
+.tn-delete:hover {
+    color: red;
+}
