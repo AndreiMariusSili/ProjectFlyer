@@ -106,7 +106,9 @@ class FlyersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Flyer::findOrFail($id)->delete();
+
+        return redirect('/');
     }
 
 }

@@ -72,7 +72,7 @@ class Flyer extends Model
      */
     public function owner()
     {
-        return $this->belongsTo('App\User', 'user_id ');
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     /**
@@ -84,4 +84,15 @@ class Flyer extends Model
     {
         return $this->user_id == $user->id;
     }
+
+    public function delete()
+    {
+        foreach($this->photos as $photo)
+        {
+            $photo->delete();
+        }
+        
+        parent::delete();
+    }
+
 }

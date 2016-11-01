@@ -1,7 +1,6 @@
 @extends('layout');
 
 @section('content')
-
     <div class="row">
         <div class="col-md-6">
             <h1>{{ $flyer->street }}</h1>
@@ -15,6 +14,14 @@
 
             <hr>
 
+            <div class="contact">
+                <h4>Contact the owner if you like what you see.</h4>
+                <p>{{ $flyer->owner->name }}</p>
+                <p><a href="mailto:{{ $flyer->owner->email }}">{{ $flyer->owner->email }}</a></p>
+                <p><a href="tel:{{ $flyer->owner->phone }}">{{ $flyer->owner->phone }}</a></p>
+                <p>{{ $flyer->owner->description }}</p>
+
+            </div>
         </div>
         <div class="col-md-6">
             @foreach($flyer->photos->chunk(4) as $set)
@@ -47,9 +54,17 @@
                 <form id="addPhotosForm"
                       action="{{ route('store_photo_path', [$flyer->zip, $flyer->street]) }}"
                       method="POST"
-                      class="dropzone dropzon-custom"
+                      class="dropzone dropzone-custom"
                 >
-                    {{ csrf_field() }}
+                    {!! csrf_field() !!}
+                </form>
+
+                <form action="/flyers/{{$flyer->id}}" method="POST">
+                    {!! csrf_field() !!}
+                    
+                    <input type="hidden" name="_method" value="DELETE">
+
+                    <button type="submit" class="btn btn-block btn-danger">Remove Flyer</button>
                 </form>
             @endif
         </div>

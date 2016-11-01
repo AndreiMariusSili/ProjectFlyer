@@ -1,7 +1,6 @@
 @extends('layout')
 
 @section('content')
-
     <div class="row jumbotron">
         <h1>Welcome to Project Flyer!</h1>
         <p>
@@ -22,6 +21,18 @@
         @endif
     </div>
     <div class="row jumbotron">
-        
+        @foreach($flyers->chunk(4) as $set)
+            <div class="row">
+                @foreach($set as $flyer)
+                    <div class="col-md-3 col-xs-6">
+                        <a href="{{ flyer_path($flyer) }}">
+                            <img src="{{ $flyer->photos()->exists() ? $flyer->photos->first()->thumbnail_path : 'images\home.png' }}" width="200" height="200">
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+
+            <hr>
+        @endforeach
     </div>
 @endsection
