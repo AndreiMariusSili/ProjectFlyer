@@ -1,3 +1,9 @@
+# Project Description
+
+This application is a mock project build according to the laracasts.com tutorial series "Project Flyer". It allows users to create and update an acccount and to create, update, and delete flyers that represent houses for sale. Flyers can also be appended with photos of the residence for sale.
+
+It is built in Laravel 5.
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
