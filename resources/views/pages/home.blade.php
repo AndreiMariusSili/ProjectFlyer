@@ -26,8 +26,10 @@
                 @foreach($set as $flyer)
                     <div class="col-md-3 col-xs-6">
                         <a href="{{ flyer_path($flyer) }}">
-                            <img src="{{ $flyer->photos()->exists() ? $flyer->photos->first()->thumbnail_path : 'images\home.png' }}" width="200" height="200">
+                            <img src="{{ $flyer->photos()->exists() ? $flyer->photos->first()->thumbnail_path : 'images\home.png' }}" style="width: 200px; height: 200px;">
                         </a>
+                            <p style="width: 200px;"><strong>{{ $flyer->owner->name }}</strong></p>
+                            <p style="width: 200px">{{ $flyer->street }}</p>
                     </div>
                 @endforeach
             </div>
